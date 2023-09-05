@@ -1,7 +1,9 @@
+package Task5;
+
 //Завдання No 5.
 //        Створіть ієрархію класів предметної області “Сервіс доставки”.
 //        Обов’язково використати класи:
-//        Item, Shipment, Customer, Receive Point,Departure Point.
+//        Task5.Item, Shipment, Customer, Receive Point,Departure Point.
 //        Товар, Доставка, Клієнт, Пункт отримання, Пункт відправлення.
 //        1. Умови: Реалізувати методи для створення та скасування відправлення.
 //        2. Одне відділення доставки може отримувати та відправляти посилки.
@@ -12,5 +14,21 @@
 //        доставки, її має доставляти велокур’єр.
 //        6. Не використовувати Java Collection, виключно масиви
 public class Item {
+    private String description;
+    private double weight;
+    public Item(double weight, String description) {
+        if (weight < 0)
+            throw new IllegalArgumentException("Вага повинна бути додатним числом.");;
+        this.weight = weight;
+        if (description.length() > 1) {
+            this.description = description;
+        } else this.description = "No description";
+    }
+    public double getWeight(){
+        return weight;
+    }
+    public String getDescription(){
+        return description;
+    }
 
 }

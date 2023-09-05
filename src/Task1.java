@@ -6,7 +6,7 @@
 //        ● ділення на 0;
 //        ● введення невірного знаку операції.
 public class Task1 {
-    public static int operation(int a, int b, String opchar) {
+    public static Integer operation(int a, int b, String opchar) {
         try {
             switch (opchar) {
 
@@ -27,7 +27,7 @@ public class Task1 {
             }
         } catch (Exception e) {
             System.out.println("Помилка: " + e.getMessage());
-            return 0;
+            return null;
         }
 
     }
