@@ -18,16 +18,16 @@ public class Task1 {
                     return a * b;
                 case "/": {
                     if (b == 0) {
-                        throw new Exception("Ділення на нуль");
+                        throw new Exception("Ділення на нуль"); // Англійською, IllegalOperationException підійде найкраще.
                     }
                     return a / b;
                 }
                 default:
-                    throw new Exception("Некоректний символ");
+                    throw new Exception("Некоректний символ"); // Англійською, і не просто Exception. IllegalArgumentException підійде найкраще.
             }
         } catch (Exception e) {
-            System.out.println("Помилка: " + e.getMessage());
-            return null;
+            System.out.println("Помилка: " + e.getMessage()); // Англійською
+            return null; //Чому ти повертаєш null ?
         }
 
     }
