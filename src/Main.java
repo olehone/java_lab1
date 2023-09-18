@@ -26,7 +26,7 @@ public class Main {
         //Task 2
         final String[] unsortedList = {"ЛітерАми", "масИв", "ЗА ВелИкими", "ОСЬ ПОСОРТОВАНИЙ"};
         //==============================
-        Task2.sortStrings(unsortedList);
+        Task2.bubbleSortByCapitalLetters(unsortedList);
         //==============================
         System.out.println("\n Завдання 2");
         System.out.println("Сортований масив: ");

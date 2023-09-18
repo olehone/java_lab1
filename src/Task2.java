@@ -1,8 +1,8 @@
 //Завдання No 2.
 //Реалізувати сортування масиву String за кількістю великих літер.
 public class Task2 {
-    public static void sortStrings(String[] unsortedStrings) {
-        if (unsortedStrings == null)
+    public static void bubbleSortByCapitalLetters(String[] unsortedStrings) {
+        if (unsortedStrings == null|| unsortedStrings.length<2)
             return ;
         for(int last = unsortedStrings.length -1 ; last > 0; last--)
         {
