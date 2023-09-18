@@ -18,15 +18,15 @@ public class Task1 {
                     return a * b;
                 case "/": {
                     if (b == 0) {
-                        throw new Exception("Ділення на нуль");
+                        throw new ArithmeticException("Division by zero");
                     }
                     return a / b;
                 }
                 default:
-                    throw new Exception("Некоректний символ");
+                    throw new IllegalArgumentException("Invalid character");
             }
         } catch (Exception e) {
-            System.out.println("Помилка: " + e.getMessage());
+            System.out.println("Error: " + e.getMessage());
             return null;
         }
 
