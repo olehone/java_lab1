@@ -4,25 +4,25 @@
 //        використовувати regex.
 public class Task3 {
     public static boolean validateEmail(final String email, final String forbiddenChars){
-        if(email == null)
+        if(email == null) // А якщо стрінги пуста, але не null?
             return false;
-        final int addressSignIndex = email.indexOf("@");
-        final int dotIndex = email.indexOf(".");
-        if(dotIndex<addressSignIndex||addressSignIndex<1||dotIndex==email.length()-1)
+        final int addressSignIndex = email.indexOf("@"); // "@" всі такі штуки нащивається magic string. Винеси, як class level var and use link to it.
+        final int dotIndex = email.indexOf("."); // + те саме що вище
+        if(dotIndex<addressSignIndex||addressSignIndex<1||dotIndex==email.length()-1) // це операція в if окремий метод 
             return false;
-        final String beforeAddressSing = email.substring(0, addressSignIndex);
+        final String beforeAddressSing = email.substring(0, addressSignIndex); 
         final String betweenAddressAndDot = email.substring(addressSignIndex+1, dotIndex);
         final String afterDot = email.substring(dotIndex+1);
 
-        //==============================
-        if(isBadString(beforeAddressSing, forbiddenChars))
-            return false;
-        if(isBadString(betweenAddressAndDot, forbiddenChars))
-            return false;
-        return ! isBadString(afterDot, forbiddenChars);
+        //============================== // шо це таке ? Нафіга ? 
+        if(isBadString(beforeAddressSing, forbiddenChars))  // Може просто зробити return !isBadString і все ? 
+            return false; //
+        if(isBadString(betweenAddressAndDot, forbiddenChars)) //
+            return false; //
+        return ! isBadString(afterDot, forbiddenChars); // 
     }
     public static boolean isBadString(final String chekedString, final String forbiddenChars){
-        if(chekedString==null)
+        if(chekedString==null) // 
             return true;
         if(forbiddenChars ==null)
             return false;
