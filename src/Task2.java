@@ -1,8 +1,11 @@
 //Завдання No 2.
 //Реалізувати сортування масиву String за кількістю великих літер.
+// Точніще опиши завдання !!!
+// Що це за неймінги ?   unsortedStrings бац і він сортед ?  
+// Погугли про автоформатинг коду в Idea чи Eclipse 
 public class Task2 {
     public static void sortStrings(String[] unsortedStrings) {
-        if (unsortedStrings == null)
+        if (unsortedStrings == null) // Окей, а якщо unsortedString != null але масив є пустий ?  
             return ;
         for(int last = unsortedStrings.length -1 ; last > 0; last--)
         {
