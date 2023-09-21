@@ -123,7 +123,7 @@ public class Task3 {
     }
 
     public static boolean validateEmail(final String email) {
-        final String forbiddenChars = "!@#$%^&*()_+?><\"'|{}[]`/*-+., ";
+        final String forbiddenChars = "!@#$%^&*()_+?><\"'|{}[]`/*-+. ,";
         final int minCountOfCharBetweenDelimiterChars = 1;
         final int maxCountOfCharBetweenDelimiterChars = 15;
         return validateByCriteriaAndForbiddenChars(email, "@.", forbiddenChars, true, true, minCountOfCharBetweenDelimiterChars, maxCountOfCharBetweenDelimiterChars);
