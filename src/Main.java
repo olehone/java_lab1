@@ -35,8 +35,7 @@ public class Main {
         }
 
         //Task 3
-        final String forbiddenChars = "!@#$%^&*()_+?><\"'|{}[]`/*-+.,";
-        final String[] examples = {
+        final String[] emailExamples = {
                 "example@gmail.com",
                 "exa123mple@gma|il.com",
                 "example@gmail.",
@@ -44,14 +43,30 @@ public class Main {
                 "example@ukr.net",
                 "@gmail.com",
                 "example@gmailcom"};
+        final String[] phoneExamples = {
+                "+380961574384",
+                "1654861315511",
+                "++545646654555",
+                " +380961574384",
+                "example@ukr.net",
+                "1264789423467",
+                "+380hehe88654",
+                "+847539512420"};
         //==============================
         System.out.println("\n\n Завдання 3");
-        for (String str : examples) {
-            if (Task3.validateEmail(str, forbiddenChars))
+        for (String str : emailExamples) {
+            if (Task3.validateEmail(str))
                 System.out.print(" Успішно ");
             else System.out.print(" Помилка ");
 
             System.out.println(" для адреси " + str);
+        }
+        for (String str : phoneExamples) {
+            if (Task3.validatePhoneNumber(str))
+                System.out.print(" Успішно ");
+            else System.out.print(" Помилка ");
+
+            System.out.println(" для телефону " + str);
         }
 
         //Task 4
