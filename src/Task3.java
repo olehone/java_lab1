@@ -11,7 +11,7 @@ public class Task3 {
     }
 
     public static boolean validateEmail(final String email) {
-        final String forbiddenChars = "!@#$%^&*()_+?><\"'|{}[]`/*-+. ,";
+        final String forbiddenChars = "!@#$%^&*()_+?><\"'|{}[]`/*-+. ,|";
         final int minCountOfCharBetweenDelimiterChars = 1;
         final int maxCountOfCharBetweenDelimiterChars = 15;
         return validateByCriteriaAndForbiddenChars(email, "@.", forbiddenChars, true, true, minCountOfCharBetweenDelimiterChars, maxCountOfCharBetweenDelimiterChars);
@@ -94,7 +94,7 @@ public class Task3 {
                 return false;
             currentCheckedString = tmpString.substring(firstIndex + 1, secondIndex);
             //only in bad result return false
-            if (!isStringHasForbiddenChars(currentCheckedString, forbiddenChars) || isStringHasBadLength(currentCheckedString, minCharsBetweenDelimiterCount, maxCharsBetweenDelimiterCount)) {
+            if (isStringHasForbiddenChars(currentCheckedString, forbiddenChars) || isStringHasBadLength(currentCheckedString, minCharsBetweenDelimiterCount, maxCharsBetweenDelimiterCount)) {
                 return false;
             }
             tmpString = tmpString.substring(secondIndex + 1);
@@ -110,12 +110,11 @@ public class Task3 {
         return !isStringHasForbiddenChars(charsAfterLastDelimiter, allowedChars) && !isStringHasBadLength(charsAfterLastDelimiter, minCharsBetweenDelimiterCount, maxCharsBetweenDelimiterCount);
     }
     private static boolean checkBeforeFirstDelimiterByForbidden(String checkedString, String delimiterChars, String forbiddenChars, int minCharsBetweenDelimiterCount, int maxCharsBetweenDelimiterCount){
-        final int lastDelimiterIndex = checkedString.indexOf(delimiterChars.charAt(delimiterChars.length() - 1));
-        if (lastDelimiterIndex == -1)
+        final int firstDelimiterIndex = checkedString.indexOf(delimiterChars.charAt(0));
+        if (firstDelimiterIndex == -1)
             return false;
-        final String charsAfterLastDelimiter = checkedString.substring(lastDelimiterIndex + 1);
-        //only in bad result return false
-        return !isStringHasForbiddenChars(charsAfterLastDelimiter, forbiddenChars) && !isStringHasBadLength(charsAfterLastDelimiter, minCharsBetweenDelimiterCount, maxCharsBetweenDelimiterCount);
+        final String charsBeforeFirstDelimiter = checkedString.substring(0, firstDelimiterIndex);
+        return !isStringHasForbiddenChars(charsBeforeFirstDelimiter, forbiddenChars) && !isStringHasBadLength(charsBeforeFirstDelimiter, minCharsBetweenDelimiterCount, maxCharsBetweenDelimiterCount);
     }
     private static boolean checkAfterLastDelimiterByAllowed(String checkedString, String delimiterChars, String allowedChars, int minCharsBetweenDelimiterCount, int maxCharsBetweenDelimiterCount){
         final int lastDelimiterIndex = checkedString.indexOf(delimiterChars.charAt(delimiterChars.length() - 1));
@@ -126,12 +125,11 @@ public class Task3 {
         return isStringHasOnlyAllowedChars(charsAfterLastDelimiter, allowedChars) && !isStringHasBadLength(charsAfterLastDelimiter, minCharsBetweenDelimiterCount, maxCharsBetweenDelimiterCount);
     }
     private static boolean checkBeforeFirstDelimiterByAllowed(String checkedString, String delimiterChars, String allowedChars, int minCharsBetweenDelimiterCount, int maxCharsBetweenDelimiterCount){
-        final int lastDelimiterIndex = checkedString.indexOf(delimiterChars.charAt(delimiterChars.length() - 1));
-        if (lastDelimiterIndex == -1)
+        final int firstDelimiterIndex = checkedString.indexOf(delimiterChars.charAt(0));
+        if (firstDelimiterIndex == -1)
             return false;
-        final String charsAfterLastDelimiter = checkedString.substring(lastDelimiterIndex + 1);
-        //only in bad result return false
-        return isStringHasOnlyAllowedChars(charsAfterLastDelimiter, allowedChars) && !isStringHasBadLength(charsAfterLastDelimiter, minCharsBetweenDelimiterCount, maxCharsBetweenDelimiterCount);
+        final String charsBeforeFirstDelimiter = checkedString.substring(0, firstDelimiterIndex);
+        return isStringHasOnlyAllowedChars(charsBeforeFirstDelimiter, allowedChars) && !isStringHasBadLength(charsBeforeFirstDelimiter, minCharsBetweenDelimiterCount, maxCharsBetweenDelimiterCount);
     }
 
     public static boolean isBadIndexes(final int firstIndex, final int secondIndex) {
