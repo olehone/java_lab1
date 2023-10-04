@@ -2,6 +2,11 @@
 //        Реалізувати метод validateEmail(final String email), який приймає рядок і
 //        повертає true, якщо рядок є валідною емейл адресою, та false - якщо ні. Не
 //        використовувати regex.
+
+
+//I think there is a lot of soft code and too long names of methods and variables
+// maybe it is better to split the email line by the dog, validate the left part by allowed characters,
+// and the right part by the list of allowed domains
 public class Task3 {
     public static boolean validatePhoneNumber(final String phoneNumber) {
         final String numbers = "0123456789";
